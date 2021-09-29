@@ -1,0 +1,46 @@
+<?php
+//type pins
+/* @var $block Magento\Framework\View\Element\Template */
+?>
+
+<div id="free-shipping-banner" data-bind="scope: 'free-shipping-banner'">
+    <!--<div data-bind="text: message"></div>-->
+    <!-- ko template: getTemplate() --> <!-- /ko-->
+
+</div>
+
+
+<!--magento specific type to instantiate JS component-->
+<!--/*
+* ko template: get('template')
+* ko template: 'RichardDewan_FreeShippingPromo/free-shipping-banner'
+* Within this x-magento-init tag, use an element selector to target the
+* related DOM element. #free-shipping-banner targets the above div element
+* with the attribute id="free-shipping-banner".
+*
+* The call to $block->getJsLayout() calls the configuration that was just
+* defined within the new Layout XML file. This passes the config to
+* Magento_Ui/js/core/app, which in turn resolves back to
+* vendor/magento/module-ui/view/base/web/js/core/app.js, and then this
+* script bootstraps the UI Component initialization process.
+*/-->
+<!--JS file responsible for initializing UI component-->
+
+<!--
+"Magento_Ui/js/core/app": {
+                "components":{
+                    "free-shipping-banner":{
+                        "component":"RichardDewan_FreeShippingPromo/js/free-shipping-banner"
+                        }
+                    }
+                }
+            }
+ -->
+
+<script type="text/x-magento-init">
+    {
+        "#free-shipping-banner": {
+            "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
+        }
+    }
+</script>

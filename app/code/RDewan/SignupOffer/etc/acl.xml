@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="RDewan_SignupOffer::main_menu" title="RDewan" sortOrder="900">
+                    <resource id="RDewan_SignupOffer::signupoffer" title="Signup Offer" sortOrder="901" translate="title">
+                        <resource id="RDewan_SignupOffer::config" title="Configuration" translate="title">
+                            <resource id="RDewan_SignupOffer::config_save" title="Save" translate="title"/>
+                            <resource id="RDewan_SignupOffer::config_delete" title="Delete" translate="title"/>
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

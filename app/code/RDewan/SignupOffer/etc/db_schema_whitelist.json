@@ -1,0 +1,20 @@
+{
+    "rdewan_signupoffer_config": {
+        "column": {
+            "id": true,
+            "api_key": true,
+            "server": true,
+            "list_id": true,
+            "coupon_discount_amount": true,
+            "coupon_amount_txt": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "index": {
+            "RDEWAN_SIGNUPOFFER_CONFIG_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

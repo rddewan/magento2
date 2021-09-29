@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="rdewan_signupoffer_config" resource="default" engine="innodb" comment="Signup offer">
+        <column xsi:type="int" name="id" padding="11" unsigned="true" nullable="false" identity="true" comment="id"/>
+        <column xsi:type="varchar" name="api_key" nullable="false" comment="mailchimp api key"/>
+        <column xsi:type="varchar" name="server" length="8" nullable="false" comment="mailchimp server"/>
+        <column xsi:type="varchar" name="list_id" length="25" nullable="false" comment="mailchimp list id"/>
+        <column xsi:type="double" name="coupon_discount_amount" unsigned="true" nullable="false" default="0.0"
+                comment="coupon amount"/>
+        <column xsi:type="text" name="coupon_amount_txt" nullable="false"/>
+        <column xsi:type="datetime" name="created_at" nullable="false" on_update="false" default="CURRENT_TIMESTAMP"
+                comment="created at"/>
+        <column xsi:type="datetime" name="updated_at" nullable="false" on_update="true" default="CURRENT_TIMESTAMP"
+                comment="updated at"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="RDEWAN_SIGNUPOFFER_CONFIG_ID" indexType="btree">
+            <column name="id"/>
+        </index>
+    </table>
+</schema>

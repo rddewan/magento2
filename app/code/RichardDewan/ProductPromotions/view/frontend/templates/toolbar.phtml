@@ -1,0 +1,16 @@
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+
+?>
+<?php if ($block->getCollection()->getSize()): ?>
+    <div class="toolbar toolbar-products" data-mage-init='<?= /* @escapeNotVerified */ $block->getWidgetOptionsJson() ?>'>
+
+        <?php if ($block->isExpanded()): ?>
+            <?php include $block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')?>
+        <?php endif; ?>
+    </div>
+<?php endif ?>

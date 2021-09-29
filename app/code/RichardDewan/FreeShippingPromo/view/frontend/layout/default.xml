@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--default.xml will be applied to every single page on the site-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Reference the parent with referenceContainer or referenceBlock -->
+        <referenceContainer name="header.container">
+            <!--make this block come before all other block: before="-"-->
+            <!-- This is a standard block with a reference to our template -->
+            <block name="free.shipping.banner"
+                   template="RichardDewan_FreeShippingPromo::free-shipping-banner.phtml"
+                   before="-">
+                <!--block arguments : JS component with require js-->
+                <!-- Within the block you are targeting create arguments node -->
+                <arguments>
+                    <!-- jsLayout is the argument to target -->
+                    <argument name="jsLayout" xsi:type="array">
+                        <!-- "components" is an array of UI Components... -->
+                        <item name="components" xsi:type="array">
+                            <!-- ...add your own UI Component to the array -->
+                            <item name="free-shipping-banner" xsi:type="array">
+                                <!--reference to our UI component-->
+                                <!--
+                                Reference your component with the format
+                                Namespace_Module/js/your-file (no extenstion).
+
+                                Namespace_Module/ is relative to module dir
+                                app/code/Namespace/Module/view/frontend/web/
+                                -->
+                                <item name="component" xsi:type="string">RichardDewan_FreeShippingPromo/js/free-shipping-banner</item>
+
+                                <item name="config" xsi:type="array">
+                                    <item name="messageDefault" xsi:type="string">Free shipping on order above $100 😍 </item>
+                                    <item name="messageItemsInCart" xsi:type="string">Your are $xx.xx away from FREE shipping 😎</item>
+                                    <item name="messageFreeShipping" xsi:type="string">Your order now has FREE shipping 🥰</item>
+                                </item>
+
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

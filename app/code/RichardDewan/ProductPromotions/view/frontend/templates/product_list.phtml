@@ -1,0 +1,87 @@
+<?php /** @var \RichardDewan\ProductPromotions\Block\Christmas\ProductList $block */ ?>
+
+
+<?php $productList = $block->getProductCollection() ?>
+<?= $block->getChildHtml() ?>
+
+<div>
+    <ol class="products list items product-items">
+        <div class="grid-container">
+            <?php
+            foreach ($productList as $item) {
+                //print_r($item->getData());
+                //echo "<br>";
+                $products = $item->getData();
+                $product = $block->getProduct($products["entity_id"]);
+                $addToCartUrl = $block->getAddToCartUrl($product); ?>
+
+                <li class="product-item">
+                    <div class="product-item-info">
+                        <div class="product-item-photo hvr-bounce-in">
+                            <div class="product-image-container">
+                                <a href="<?php echo $block->getProductUrl($products["entity_id"]) ?>"
+                                   class="product photo product-item-photo">
+                                    <img src="<?php echo $block->getProductImageUrl($products["entity_id"]) ?>"
+                                         alt="product image">
+                                </a>
+                                <div class="product-label">
+                                    <div class="label-container">
+                                        <span class="sale-icon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-item-details">
+                            <span class="hvr-float"> <?php echo $products["name"] ?> </span>
+
+                            <span class="product-price hvr-buzz">
+                                <?php
+                                if ($block->getSpecialProductPrice($products["entity_id"]) > 0) {
+                                    ?>
+                                    <b>
+                                            <?php echo $block->getCurrentCurrencySymbol()
+                                                . $block->getSpecialProductPrice($products["entity_id"]) ?>
+                                        </b>
+                                    <s>
+                                            <?php echo $block->getCurrentCurrencySymbol()
+                                                . $block->getProductPrice($products["entity_id"]) ?>
+                                        </s>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <b>
+                                            <?php echo $block->getCurrentCurrencySymbol()
+                                                . $block->getProductPrice($products["entity_id"]) ?>
+                                        </b>
+                                    <?php
+                                } ?>
+                            </span>
+
+                            <form data-role="tocart-form" action="<?php echo $addToCartUrl; ?>" method="post">
+                                <?php echo $block->getBlockHtml('formkey') ?>
+                                <p>
+                                    <button type="submit" title="Add to Cart" class="cartbtn hvr-pulse">
+                                        <span>Add to Cart</span>
+                                    </button>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+
+                <?php
+            }
+            ?>
+        </div>
+    </ol>
+
+
+    <?php if ($block->getPagerHtml()) : ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+
+    <?php else: ?>
+        <div class="message info empty"><span><?php echo __('You have no any data.....'); ?></span></div>
+    <?php endif; ?>
+</div>
+

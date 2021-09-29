@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                <!--ui component name and datasource name-->
+                rdewan_signupoffer_config_form.rdewan_signoffer_config_form_data_source
+            </item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Configuration</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">RDewan\SignupOffer\Block\Adminhtml\Config\Edit\BackButton</item>
+            <item name="save" xsi:type="string">RDewan\SignupOffer\Block\Adminhtml\Config\Edit\SaveButton</item>
+        </item>
+    </argument>
+
+    <settings>
+        <!--dependency-->
+        <deps>
+            <dep>rdewan_signupoffer_config_form.rdewan_signoffer_config_form_data_source</dep>
+        </deps>
+        <spinner>rdewan_signoffer_config_fields</spinner>
+    </settings>
+
+    <!--datasource-->
+    <dataSource name="rdewan_signoffer_config_form_data_source" component="Magento_Ui/js/form/provider">
+        <aclResource>RDewan_SignupOffer::config</aclResource>
+        <dataProvider name="rdewan_signoffer_config_form_data_source"
+                      class="RDewan\SignupOffer\Model\DataProvider">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="rdewan_signupoffer_config_form_fields">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true">Configuration</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+        <field name="id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Id</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">id</item>
+                    <item name="dataScope" xsi:type="string">id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="api_key">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Api Key</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">api_key</item>
+                    <item name="dataScope" xsi:type="string">api_key</item>
+                </item>
+            </argument>
+        </field>
+        <field name="server">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Server</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataScope" xsi:type="string">server</item>
+                </item>
+            </argument>
+        </field>
+        <field name="list_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">List Id</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataScope" xsi:type="string">list_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="coupon_discount_amount">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Coupon Discount Amount</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataScope" xsi:type="string">coupon_discount_amount</item>
+                </item>
+            </argument>
+        </field>
+        <field name="coupon_amount_txt">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Coupon Amount</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="dataScope" xsi:type="string">coupon_amount_txt</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

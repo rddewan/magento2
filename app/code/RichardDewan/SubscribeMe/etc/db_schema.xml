@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="richarddewan_subscribeme_subscription" resource="default" engine="innodb" comment="Richard Dewan Subscribe Me">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="name"  comment="customer name"/>
+        <column xsi:type="varchar" name="email"  comment="customer email"/>
+        <column xsi:type="date" name="dob"  comment="customer date of birth"/>
+        <column xsi:type="varchar" name="sex"  comment="customer sex"/>
+        <column xsi:type="varchar" name="status"  comment="contact status"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="RICHARDDEWAN_SUBSCRIBEME_SUBSCRIPTION_ID" indexType="btree">
+            <column name="id"/>
+        </index>
+    </table>
+</schema>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="tonggarden_bestseller_sales_bestsellers" resource="sales" engine="innodb" comment="Tong Garden BestSelling Sales BestSeller">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="boolean" name="is_featured"  comment="Is Featured?"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="TONGGARDEN_BESTSELLER_SALES_BESTSELLERS_IS_FEATURED" indexType="btree">
+            <column name="is_featured"/>
+        </index>
+    </table>
+</schema>

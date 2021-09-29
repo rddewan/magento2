@@ -1,0 +1,38 @@
+
+<!--<div id="vue-test" data-mage-init='{"RichardDewan_JsFun/js/vue-test": {"message": "Imperatively Test From Vue"} }'>
+    <h1 v-if=message> {{ message }}</h1>
+</div>-->
+
+<?php
+/** @var \RichardDewan\JsFun\ViewModel\Message $messageViewModel */
+
+$messageViewModel = $block->getData('message_view_model');
+?>
+
+<div id="vue-test">
+    <h1> {{ message }}</h1>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#vue-test": {
+            "RichardDewan_JsFun/js/vue-test": {
+                "message": "<?= $messageViewModel->getMessage() ?>"
+            }
+        }
+
+    }
+</script>
+
+<!--<script>
+    require(['vue'],function (Vue) {
+        'use strict'
+
+        new Vue({
+            el: '#vue-test',
+            data: {
+                message: 'Vue test message'
+            }
+        })
+    })
+</script>-->

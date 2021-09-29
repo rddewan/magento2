@@ -1,0 +1,131 @@
+body, html {
+    overflow-x: hidden;
+    display: block;
+    margin: 0 auto;
+}
+
+.bg-signup-offer-home {
+    background-image: url("../images/background.jpg") !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh !important;
+}
+
+.btn-get-voucher {
+    height: 56px;
+    width: 300px;
+    font-size: 24px;
+    border-radius: 8px;
+    color: #faf9f9 !important;
+    background-color: #28b103 !important;
+}
+.btn-get-voucher:hover {
+    border-color: #FFFFFF;
+    background-color: rgba(255, 95, 124, 1) !important;
+}
+
+.signup-offer-popup-modal {
+    /*background-color: #ea2d9e !important;*/
+}
+
+.modal-inner-wrap {
+    border-color: #2EC029 !important;
+    border-radius: 8px !important;
+}
+
+.center-vertical-horizontal {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.container-center {
+    min-height: 100vh;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-best-seller {
+    padding: 16px;
+    min-height: 100vh;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subhead.font-scale-9, .subhead .font-scale-9 {
+    font-size: 3.5rem;
+    font-weight: 400;
+}
+
+.lp-headline.line-height-scale-2:not(:last-child) {
+    padding-bottom: .5em;
+}
+
+.line-height-scale-2 {
+    line-height: 1;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.modal-inner-wrap {
+    border: 1px solid forestgreen !important;
+    padding: 8px !important;
+    border-radius: 16px;
+}
+
+.modal-popup .modal-inner-wrap {
+    width: 50% !important;
+}
+
+.modal-popup ._inner-scroll .modal-inner-wrap {
+    width: fit-content;
+    min-height: fit-content;
+    max-height: 90%;
+}
+
+.featured-section4-wrapper {
+    background-image: linear-gradient(to bottom, transparent, transparent),
+    url('../images/bg_best_seller.png') !important;
+}
+.swal2-styled.swal2-confirm {
+    font-size: 1.5em !important;
+}
+.swal2-title {
+    font-size: 2.5em !important;
+}
+.swal2-html-container {
+    font-size: 2em !important;
+}
+.swal2-popup {
+    width: 42em !important;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+    .modal-popup.modal-slide._inner-scroll .modal-inner-wrap {
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    .modal-popup.modal-slide {
+        left: 6px !important;
+        right: 6px !important;
+    }
+
+    .modal-popup .modal-inner-wrap {
+        width: 90% !important;
+    }
+
+}
+

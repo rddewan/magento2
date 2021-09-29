@@ -1,0 +1,174 @@
+<?php
+/** @var  $block Magento\Framework\View\Element\Template */
+/** @var $viewModel RDewan\SignupOffer\ViewModel\Home */
+$viewModel = $block->getData('home_view_model');
+?>
+
+<div class="bg-signup-offer-home">
+    <div class="container-center">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2 class="lp-headline text-align-center font-scale-9 line-height-scale-2 subhead">
+
+                    <span style="color: rgba(56, 185, 255, 1);">
+                        <span style="font-family:'Arvo', sans-serif; font-size: 56px">
+                            <em><strong><?= __("START") ?></strong></em>
+                        </span>
+                    </span>
+
+                    <span style="color: rgba(13, 13, 13, 1);">
+                        <span style="font-family: 'Arvo', sans-serif; font-size: 32px">
+                            <?= __("your") ?>
+                        </span>
+                    </span>
+
+                    <span style="color: rgba(255, 95, 124, 1);">
+                        <span style="font-family: 'Lobster', sans-serif; font-size: 56px">
+                            <?= __("nuts") ?>
+                        </span>
+                    </span>
+                    <br>
+                    <span style="color: rgba(13, 13, 13, 1);">
+                        <span style="font-family: 'Arvo', sans-serif; font-size: 40px">
+                            <?= __("journey") ?>
+                        </span>
+                    </span>
+                    <span style="color: rgba(13, 13, 13, 1);">
+                        <span style="font-family: 'Arvo', sans-serif; font-size: 40px">
+                            <?= __("today!") ?>
+                        </span>
+                    </span>
+                </h2>
+
+                <h2 class="lp-headline text-align-center font-scale-9 line-height-scale-2 subhead">
+                    <span style="color: rgba(13, 13, 13, 1);">
+                        <span style="font-family: 'Arvo', sans-serif; font-size: 40px">
+                            Sign up &amp; get
+                        </span>
+                    </span>
+                    <span style="color: rgba(255, 95, 124, 1);">
+                        <span style="font-family: 'Arvo', sans-serif; font-size: 56px">
+                            <strong>$50 WORTH</strong>
+                        </span>
+                    </span>
+                    <br>
+                    <span style="color: rgba(13, 13, 13, 1);">
+                        <span style="font-family: 'Arvo', sans-serif; font-size: 40px">
+                            of welcome vouchers!
+                        </span>
+                    </span>
+                </h2>
+
+                <br>
+                <button id="voucher-btn" type="button" style="font-family: 'Arvo', sans-serif;"
+                        class="btn-get-voucher"> <?= __("Get Your VOUCHERS!") ?> </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="popup-modal" class="signup-offer-popup-modal">
+    <form action="/signup-offer/Home/Subscribe"
+          method="post"
+          id="form-subscribe"
+          data-mage-init='{"validation":{}}'>
+        <fieldset class="fieldset">
+            <div class="form-group field required">
+                <label class="label" for="first_name">First Name</label>
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name"
+                       data-validate="{required:true}">
+            </div>
+            <div class="form-group field required">
+                <label class="label" for="last_name">Last Name</label>
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"
+                       data-validate="{required:true}">
+            </div>
+            <div class="form-group field required">
+                <label class="label" for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                       placeholder="Enter email" data-validate="{required:true, 'validate-email':true}">
+            </div>
+            <div class="form-group field required">
+                <label class="label" for="dob">Birthday</label>
+                <input type="text" class="form-control" id="dob" name="dob" aria-describedby="dobHelp"
+                       placeholder="mm-dd"
+                       data-validate="{required:true}">
+            </div>
+
+            <span class="label field required" id="gender">
+                <label class="label" for="gender">Gender</label>
+            </span>
+            <br>
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        id="male"
+                        value="Male"
+                        required
+                    />
+                    <label class="label" for="male" style="font-weight: normal">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        id="female"
+                        value="Female"
+                        required
+                    />
+                    <label class="label" for="female" style="font-weight: normal">Female</label>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<script>
+    require([
+        'jquery',
+        'popUpModel',
+        'sweetalert',
+        'mage/calendar',
+    ], function ($, popUpModel, Swal) {
+        'use strict'
+
+        $(function (){
+            $('#dob').datepicker({
+                    prevText: '&#x3c;zurück', prevStatus: '',
+                    prevJumpText: '&#x3c;&#x3c;', prevJumpStatus: '',
+                    nextText: 'Vor&#x3e;', nextStatus: '',
+                    nextJumpText: '&#x3e;&#x3e;', nextJumpStatus: '',
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June',
+                        'July', 'August', 'September', 'October', 'November', 'December'],
+                    monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    dayNames: ['Sunday ', 'Monday', 'Tuesday ', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                    dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                    dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                    showMonthAfterYear: false,
+                    dateFormat: 'mm/dd'
+                }
+            );
+        })
+
+
+        /*$(function () {
+            popUpModel('.bg-signup-offer-home')
+        })*/
+
+        /*Swal.fire({
+            title: 'Error!',
+            text: 'Do you want to continue',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+        })*/
+
+
+    })
+</script>
+

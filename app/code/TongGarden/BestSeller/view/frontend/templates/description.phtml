@@ -1,0 +1,10 @@
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $var TongGarden\BestSeller\ViewModel\Description $descriptionViewModel */
+$descriptionViewModel = $block->getData('description_view_model');
+//$descriptionViewModel = $block->getDescriptionViewModel();
+?>
+<p><?= __('This is a description') ?></p>
+<p><?= $descriptionViewModel->getWithWordCount() ?></p>
+
+<?= $block->getChildHtml() ?>

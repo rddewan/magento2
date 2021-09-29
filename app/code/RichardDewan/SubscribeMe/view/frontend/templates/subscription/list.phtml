@@ -1,0 +1,83 @@
+<?php
+/** @var  $block Magento\Framework\View\Element\Template */
+/** @var RichardDewan\SubscribeMe\ViewModel\SubscriptionList $subscriptionViewModel */
+$subscriptionViewModel = $block->getData('subscription_list_view_model');
+$subscriptions = $subscriptionViewModel->getSubscriptionList();
+$baseUrl = $block->getBaseUrl();
+?>
+<h1><?= __("Subscription List") ?></h1>
+
+<pre>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>DOB</th>
+        <th>Sex</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+    foreach ($subscriptions    as $item) {
+        ?>
+    <tr>
+        <td><?= $item->getData('name') ?></td>
+        <td><?= $item->getData('email') ?></td>
+        <td><?= $item->getData('dob') ?></td>
+        <td><?= $item->getData('sex') ?></td>
+    </tr>
+<?php
+    }
+?>
+    </tbody>
+</table>
+</pre>
+
+<br>
+<form class="form" id="subscribe-form"
+      action="/subscribe-me/Subscription/store"
+      method="POST" data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= __("Subscribe Me") ?></span></legend>
+        <div class="field note no-label">Get your special discount coupon code.</div>
+
+        <div class="field required">
+            <label class="label" for="name"><span>Name:</span></label>
+            <div class="control">
+                <input name="name" id="name" title="Name" value="" class="input-text" type="text" data-validate="{required:true}">
+            </div>
+        </div>
+        <div class="field required">
+            <label class="label" for="email"><span>Email:</span></label>
+            <div class="control">
+                <input name="email" id="email" title="Email" value="" type="email" data-validate="{required:true, 'validate-email':true}">
+            </div>
+        </div>
+        <div class="field required">
+            <label class="label" for="dob"><span>Date Of Birth:</span></label>
+            <div class="control">
+                <input name="dob" id="dob" title="DOB" value="" class="input-text" type="date" data-validate="{required:true}">
+            </div>
+        </div>
+        <div class="field required">
+            <label class="label" for="sex"><span>Sex:</span></label>
+            <div class="control">
+                <input name="sex" id="sex_male" value="Male" class="input-text" type="radio" data-validate="{required:true}">
+                <label for="sex_male">Male</label>
+            </div>
+            <div class="control">
+                <input name="sex" id="sex_female" value="Female" class="input-text" type="radio" data-validate="{required:true}">
+                <label for="sex_female">Female</label>
+            </div>
+        </div>
+
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" title="Submit" class="action submit primary">
+                    <span>Submit</span>
+                </button>
+            </div>
+    </fieldset>
+</form>
+

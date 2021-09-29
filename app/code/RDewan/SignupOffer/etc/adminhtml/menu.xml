@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="RDewan_SignupOffer::main"
+            title="RDewan"
+            module="RDewan_SignupOffer"
+            resource="RDewan_SignupOffer::main_menu"
+            sortOrder="900"
+            translate="title"
+        />
+        <add
+            id="RDewan_SignupOffer::signupoffer"
+            title="SignupOffer"
+            module="RDewan_SignupOffer"
+            resource="RDewan_SignupOffer::signupoffer"
+            translate="title"
+            sortOrder="1"
+            parent="RDewan_SignupOffer::main"
+        />
+        <add
+            id="RDewan_SignupOffer::config"
+            title="Configuration"
+            module="RDewan_SignupOffer"
+            resource="RDewan_SignupOffer::config"
+            sortOrder="900"
+            translate="title"
+            parent="RDewan_SignupOffer::signupoffer"
+            action="signup-offer/config/index"
+        />
+        <add
+            id="RDewan_SignupOffer::config_save"
+            title="Edit Configuration"
+            module="RDewan_SignupOffer"
+            resource="RDewan_SignupOffer::config_save"
+            sortOrder="900"
+            translate="title"
+            parent="RDewan_SignupOffer::signupoffer"
+            action="signup-offer/config/edit/id/1"
+        />
+        <add
+            id="RDewan_SignupOffer::config_delete"
+            title="Delete Configuration"
+            module="RDewan_SignupOffer"
+            resource="RDewan_SignupOffer::config_delete"
+            sortOrder="900"
+            translate="title"
+            parent="RDewan_SignupOffer::signupoffer"
+            action="signup-offer/config/delete/id/1"
+        />
+
+    </menu>
+</config>

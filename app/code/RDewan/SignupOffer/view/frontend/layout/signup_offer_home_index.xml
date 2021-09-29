@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="empty" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <head>
+        <css src="RDewan_SignupOffer::css/signupoffer.css"/>
+        <!--<remove src="mage/calendar.css"/>-->
+        <!--<remove src="css/styles-l.css"/>
+        <remove src="css/styles-m.css"/>
+        <remove src="css/styles-s.css"/>
+        <remove src="css/styles.css"/>-->
+        <!--<remove src="css/bootstrap.min.css"/>-->
+        <!--<remove src="css/print.css"/>
+
+        <remove src="requirejs/require.js"/>
+        <remove src="mage/requirejs/mixins.js"/>
+        <remove src="requirejs-config.js"/>
+        <remove src="mage/polyfill.js"/>-->
+    </head>
+    <body>
+        <!--<referenceBlock name="translate" remove="true"/>
+        <referenceBlock name="requirejs-config" remove="true"/>-->
+        <referenceContainer name="root">
+            <referenceContainer name="page.wrapper" remove="true">
+                <referenceContainer name="global.notices" remove="false"/>
+                <referenceContainer name="main.content" remove="true">
+                    <referenceContainer name="columns.top" remove="true"/>
+                    <referenceContainer name="columns" remove="true">
+                        <referenceContainer name="main" remove="true"/>
+                    </referenceContainer>
+                </referenceContainer>
+            </referenceContainer>
+
+            <block name="signup.offer.home"
+                   template="RDewan_SignupOffer::home.phtml">
+                <arguments>
+                    <argument name="home_view_model" xsi:type="object">RDewan\SignupOffer\ViewModel\Home</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+
+</page>
+
+

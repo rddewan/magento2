@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument name="pageTitle" translate="true" xsi:type="string">Best Selling</argument>
+            </action>
+            <arguments>
+                <argument name="css_class" xsi:type="string">cms-content-important</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="content">
+            <container htmlTag="div" htmlId="description-container">
+                <block name="bestselling.description" template="TongGarden_BestSeller::description.phtml">
+                    <arguments>
+                        <argument name="description_view_model"
+                                  xsi:type="object">TongGarden\BestSeller\ViewModel\Description</argument>
+                    </arguments>
+                    <block name="bestselling.extra" template="TongGarden_BestSeller::description-extra.phtml"/>
+                    <block name="bestselling.extra1" template="TongGarden_BestSeller::description-extra.phtml"/>
+                    <block name="bestselling.extra2" template="TongGarden_BestSeller::description-extra.phtml"/>
+                    <block name="bestselling.extra3" template="TongGarden_BestSeller::description-extra.phtml"/>
+                </block>
+            </container>
+
+            <block class="Magento\Store\Block\Switcher" name="store_language" as="store_language" template="Magento_Store::switch/languages.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Magento\Store\ViewModel\SwitcherUrlProvider</argument>
+                </arguments>
+            </block>
+
+        </referenceContainer>
+
+        <!--<move element="wishlist_sidebar" destination="content"/>-->
+        <!--<move element="wishlist_sidebar" destination="content" before="bestselling.description"/>-->
+
+        <move element="wishlist_sidebar" destination="sidebar.additional" before="-"/>
+
+        <!--<move element="store_language" destination="sidebar.additional" />-->
+
+        <referenceContainer name="catalog.compare.sidebar" remove="true"/>
+        <!--<referenceBlock name="store_language" remove="true"/>-->
+        <!--<referenceContainer name="header-wrapper" remove="true"/>-->
+
+        <!--<referenceBlock name="store_language" template="TongGarden_BestSeller::switch/languages.phtml"/>-->
+       <!-- <referenceBlock name="toogle-nav" template="TongGarden_BestSeller::header/logo.phtml"/>-->
+
+
+    </body>
+</page>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                rdewan_signupoffer_config_listing.rdewan_signoffer_config_listing_data_source
+            </item>
+        </item>
+    </argument>
+    <settings>
+        <deps>
+            <dep>rdewan_signupoffer_config_listing.rdewan_signoffer_config_listing_data_source</dep>
+        </deps>
+        <spinner>rdewan_signoffer_config_columns</spinner>
+    </settings>
+    <dataSource name="rdewan_signoffer_config_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>RDewan_SignupOffer::config</aclResource>
+        <dataProvider name="rdewan_signoffer_config_listing_data_source"
+                      class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="rdewan_signoffer_config_columns">
+        <column name="id">
+            <settings>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="api_key">
+            <settings>
+                <label translate="true">API Key</label>
+            </settings>
+        </column>
+        <column name="server">
+            <settings>
+                <label translate="true">Server</label>
+            </settings>
+        </column>
+        <column name="list_id">
+            <settings>
+                <label translate="true">List Id</label>
+            </settings>
+        </column>
+        <column name="coupon_discount_amount">
+            <settings>
+                <label translate="true">Coupon Discount Amount</label>
+            </settings>
+        </column>
+        <column name="coupon_amount_txt">
+            <settings>
+                <label translate="true">Coupon Amount</label>
+            </settings>
+        </column>
+        <column name="created_at" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+        <column name="updated_at" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <label translate="true">Updated At</label>
+            </settings>
+        </column>
+        <actionsColumn name="action" class="RDewan\SignupOffer\Ui\Component\Listing\Column\Actions"/>
+    </columns>
+
+</listing>
