@@ -82,7 +82,7 @@ composer.lock
 !/pub/static/.htaccess
 
 /var/*
-!/var/backups/*.sql
+!/var/backups/*
 !/var/.htaccess
 /vendor/*
 !/vendor/.htaccess
