@@ -83,7 +83,7 @@ composer.lock
 
 /var/*
 !/var/.htaccess
-!/var/backups/*.sql
+!/var/backups/
 /vendor/*
 !/vendor/.htaccess
 /generated/*
